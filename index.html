@@ -7,89 +7,19 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZNMX4CYVY7');
     </script>
     
-    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EUNOIA | Мгновенные выплаты в Казахстане | Instant Payouts Kazakhstan</title>
-    <meta name="description" content="EUNOIA — сервис мгновенных выплат физическим лицам по номеру телефона через СМП Казахстана. Автоматизация B2B2C платежей, API интеграция, комиссия менее 1%. Instant payouts service in Kazakhstan.">
-    <meta name="keywords" content="мгновенные платежи, instant payments, Казахстан, Kazakhstan, СМП, SMP, B2B выплаты, payouts, API платежи, fintech, финтех, EUNOIA, таксопарки, маркетплейсы, доставка, страховые выплаты">
-    <meta name="author" content="EUNOIA">
-    <meta name="robots" content="index, follow">
+    <title>EUNOIA | Maintenance | Техническое обслуживание</title>
+    <meta name="description" content="EUNOIA website is currently under maintenance. We'll be back soon!">
+    <meta name="robots" content="noindex, nofollow">
     
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://eunoia.kz/">
-    
-    <!-- Language/Hreflang Tags -->
-    <link rel="alternate" hreflang="ru" href="https://eunoia.kz/">
-    <link rel="alternate" hreflang="en" href="https://eunoia.kz/">
-    <link rel="alternate" hreflang="x-default" href="https://eunoia.kz/">
-    
-    <!-- Open Graph Tags (Facebook, LinkedIn) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://eunoia.kz/">
-    <meta property="og:title" content="EUNOIA | Мгновенные выплаты в Казахстане">
-    <meta property="og:description" content="Сервис мгновенных выплат физическим лицам по номеру телефона через СМП Казахстана. Автоматизация B2B2C платежей, API интеграция, комиссия менее 1%.">
-    <meta property="og:site_name" content="EUNOIA">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:locale:alternate" content="en_US">
-    
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://eunoia.kz/">
-    <meta name="twitter:title" content="EUNOIA | Мгновенные выплаты в Казахстане">
-    <meta name="twitter:description" content="Сервис мгновенных выплат физическим лицам по номеру телефона через СМП Казахстана. API интеграция, комиссия менее 1%.">
-    
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FinancialService",
-      "name": "EUNOIA",
-      "description": "Сервис мгновенных выплат физическим лицам по номеру телефона через СМП Казахстана. Автоматизация B2B2C платежей.",
-      "url": "https://eunoia.kz",
-      "telephone": "+77752377700",
-      "areaServed": {
-        "@type": "Country",
-        "name": "Kazakhstan"
-      },
-      "serviceType": ["Instant Payments", "B2B Payouts", "Payment Automation", "API Integration"],
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceType": "API",
-        "availableLanguage": ["Russian", "English"]
-      },
-      "potentialAction": {
-        "@type": "ContactAction",
-        "target": "tel:+77752377700",
-        "name": "Contact for Investment"
-      }
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "EUNOIA",
-      "url": "https://eunoia.kz",
-      "description": "Fintech startup providing instant payout solutions in Kazakhstan",
-      "foundingDate": "2025",
-      "areaServed": "Kazakhstan",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+77752377700",
-        "contactType": "sales",
-        "availableLanguage": ["Russian", "English"]
-      }
-    }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -107,12 +37,9 @@
             --text-muted: rgba(255, 255, 255, 0.4);
             --accent-green: #00ff88;
             --accent-purple: #a855f7;
-            --accent-cyan: #06b6d4;
             --gradient-primary: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
             --gradient-purple: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
-            --gradient-glow: linear-gradient(135deg, rgba(0, 255, 136, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
             --shadow-glow: 0 0 60px rgba(0, 255, 136, 0.15);
-            --shadow-purple: 0 0 60px rgba(168, 85, 247, 0.15);
         }
 
         body {
@@ -121,6 +48,10 @@
             color: var(--text-primary);
             background: var(--bg-dark);
             overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Animated background */
@@ -147,101 +78,156 @@
             opacity: 0.3;
             pointer-events: none;
             z-index: 0;
+            animation: float 8s ease-in-out infinite;
         }
 
         .bg-glow-1 {
             top: -200px;
             right: -200px;
             background: var(--accent-purple);
+            animation-delay: 0s;
         }
 
         .bg-glow-2 {
             bottom: -200px;
             left: -200px;
             background: var(--accent-green);
+            animation-delay: -4s;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        .maintenance-container {
             position: relative;
             z-index: 1;
+            text-align: center;
+            padding: 40px 24px;
+            max-width: 600px;
+            width: 100%;
         }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        header.scrolled {
-            background: rgba(10, 10, 15, 0.8);
+        .maintenance-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 64px 48px;
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-glass);
-            padding: 16px 0;
+            box-shadow: var(--shadow-glow);
+            animation: fadeInUp 1s ease;
         }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 48px;
             font-weight: 700;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            margin-bottom: 32px;
         }
 
-        .nav-menu {
-            display: flex;
-            gap: 32px;
-            list-style: none;
+        .maintenance-icon {
+            font-size: 80px;
+            margin-bottom: 32px;
+            animation: pulse 2s infinite;
         }
 
-        .nav-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 8px 0;
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover {
+        .maintenance-title {
+            font-size: clamp(28px, 5vw, 36px);
+            font-weight: 600;
+            margin-bottom: 16px;
             color: var(--text-primary);
         }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
+        .maintenance-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .maintenance-info {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .maintenance-info p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .maintenance-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .contact-info p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--gradient-primary);
+            color: var(--bg-dark);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 24px rgba(0, 255, 136, 0.3);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.4);
         }
 
         .lang-switcher {
             display: flex;
             gap: 8px;
+            justify-content: center;
+            margin-top: 32px;
         }
 
         .lang-btn {
@@ -269,1230 +255,30 @@
             color: var(--text-primary);
         }
 
-        /* Sections */
-        section {
-            min-height: 100vh;
-            padding: 120px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 50px;
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            backdrop-filter: blur(10px);
-            animation: fadeInDown 1s ease 0.2s both;
-        }
-
-        .hero-badge-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        .hero h1 {
-            font-size: clamp(48px, 10vw, 96px);
-            font-weight: 700;
-            letter-spacing: -3px;
-            margin-bottom: 24px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .hero .subtitle {
-            font-size: clamp(20px, 3vw, 28px);
-            font-weight: 300;
-            color: var(--text-primary);
-            max-width: 600px;
-            margin: 0 auto 16px;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .hero-description {
-            font-size: 18px;
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin: 0 auto 40px;
-            animation: fadeInUp 1s ease 0.8s both;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            animation: fadeInUp 1s ease 1s both;
-        }
-
-        .btn {
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 600;
-            font-family: 'Outfit', sans-serif;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: var(--bg-dark);
-            box-shadow: 0 4px 24px rgba(0, 255, 136, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.4);
-        }
-
-        .btn-secondary {
-            background: var(--bg-glass);
-            color: var(--text-primary);
-            border: 1px solid var(--border-glass);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent-green);
-            background: rgba(0, 255, 136, 0.1);
-        }
-
-        .hero-visual {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-
-        .hero-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .hero-orb-1 {
-            width: 500px;
-            height: 500px;
-            background: rgba(0, 255, 136, 0.2);
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .hero-orb-2 {
-            width: 400px;
-            height: 400px;
-            background: rgba(168, 85, 247, 0.2);
-            bottom: 10%;
-            right: 10%;
-            animation-delay: -4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -30px) scale(1.05); }
-            66% { transform: translate(-20px, 20px) scale(0.95); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Section Titles */
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .section-tag {
-            display: inline-block;
-            padding: 6px 16px;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--accent-green);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 600;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-            color: var(--text-primary);
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Problem Section */
-        .problem {
-            background: transparent;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            align-items: stretch;
-        }
-
-        .problem-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 32px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .problem-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .problem-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 255, 136, 0.3);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .problem-card:hover::before {
-            opacity: 1;
-        }
-
-        .problem-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--gradient-glow);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 24px;
-        }
-
-        .problem-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--text-primary);
-            min-height: 56px;
-        }
-
-        .problem-card p {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            flex-grow: 1;
-        }
-
-        /* Solution Section */
-        .solution {
-            background: transparent;
-        }
-
-        .solution-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .solution-text {
-            font-size: 22px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 48px;
-        }
-
-        .solution-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 64px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            text-align: left;
-            padding: 24px;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            border-color: var(--accent-green);
-            background: rgba(0, 255, 136, 0.05);
-        }
-
-        .feature-check {
-            width: 24px;
-            height: 24px;
-            background: var(--gradient-primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bg-dark);
-            font-weight: 700;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-
-        .feature-text {
-            font-size: 15px;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        /* SMP Schema */
-        .smp-schema {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 48px;
-            margin-top: 48px;
-        }
-
-        .smp-schema h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 40px;
-            text-align: center;
-            color: var(--text-primary);
-        }
-
-        .schema-flow {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-        }
-
-        .schema-step {
-            flex: 1;
-            text-align: center;
-            padding: 28px 20px;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .schema-step:hover {
-            border-color: var(--accent-green);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .step-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
-        }
-
-        .step-content h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-
-        .step-content p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .schema-arrow {
-            font-size: 24px;
-            color: var(--accent-green);
-            flex-shrink: 0;
-        }
-
-        /* Why Now Section */
-        .why-now {
-            background: transparent;
-        }
-
-        .why-now-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: start;
-        }
-
-        .why-now-left h3 {
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 24px;
-        }
-
-        .why-now-left > p {
-            font-size: 17px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 32px;
-        }
-
-        .timing-reasons {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .timing-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .timing-item:hover {
-            border-color: var(--accent-green);
-            background: rgba(0, 255, 136, 0.05);
-        }
-
-        .timing-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-glow);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .timing-text h4 {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .timing-text p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .cost-comparison {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 40px;
-        }
-
-        .cost-comparison h3 {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 32px;
-            text-align: center;
-        }
-
-        .cost-breakdown {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-bottom: 32px;
-        }
-
-        .cost-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 24px;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 12px;
-        }
-
-        .cost-item.visa-mc {
-            border-color: rgba(255, 100, 100, 0.3);
-        }
-
-        .cost-item.smp {
-            border-color: rgba(0, 255, 136, 0.3);
-            background: rgba(0, 255, 136, 0.05);
-        }
-
-        .cost-label {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .cost-label-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-
-        .cost-item.visa-mc .cost-label-icon {
-            background: rgba(255, 100, 100, 0.2);
-        }
-
-        .cost-item.smp .cost-label-icon {
-            background: rgba(0, 255, 136, 0.2);
-        }
-
-        .cost-label span {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .cost-value {
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .cost-item.visa-mc .cost-value {
-            color: #ff6b6b;
-        }
-
-        .cost-item.smp .cost-value {
-            color: var(--accent-green);
-        }
-
-        .cost-explanation {
-            padding: 24px;
-            background: var(--bg-glass);
-            border-radius: 12px;
-            border-left: 3px solid var(--accent-green);
-        }
-
-        .cost-explanation h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--accent-green);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cost-explanation ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .cost-explanation li {
-            font-size: 14px;
-            color: var(--text-secondary);
-            padding: 8px 0;
-            padding-left: 24px;
-            position: relative;
-            line-height: 1.5;
-        }
-
-        .cost-explanation li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-green);
-        }
-
-        /* Global Systems Section */
-        .global-systems {
-            background: transparent;
-        }
-
-        .systems-intro {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 48px;
-            font-size: 18px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .systems-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            align-items: stretch;
-        }
-
-        .system-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 32px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .system-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .system-card.india::before { background: linear-gradient(90deg, #ff9933, #138808); }
-        .system-card.brazil::before { background: linear-gradient(90deg, #009c3b, #ffdf00); }
-        .system-card.russia::before { background: linear-gradient(90deg, #fff, #0039a6, #d52b1e); }
-
-        .system-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 255, 136, 0.3);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .system-card:hover::before {
-            opacity: 1;
-        }
-
-        .system-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .system-flag {
-            font-size: 40px;
-            line-height: 1;
-        }
-
-        .system-info h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .system-name {
-            font-size: 14px;
-            color: var(--accent-cyan);
-            font-weight: 600;
-            min-height: 42px;
-            display: block;
-        }
-
-        .system-stats {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-glass);
-        }
-
-        .system-stat {
-            flex: 1;
-            text-align: center;
-            padding: 12px;
-            background: var(--bg-glass);
-            border-radius: 8px;
-        }
-
-        .system-stat-value {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--accent-green);
-            margin-bottom: 4px;
-        }
-
-        .system-stat-label {
-            font-size: 11px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .system-companies h4 {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .company-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .company-tag {
-            padding: 6px 12px;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 50px;
-            font-size: 13px;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-        }
-
-        .company-tag:hover {
-            border-color: var(--accent-green);
-            color: var(--text-primary);
-        }
-
-        .company-tag .valuation {
-            color: var(--accent-green);
-            font-weight: 600;
-            margin-left: 4px;
-        }
-
-        .systems-conclusion {
-            margin-top: 48px;
-            padding: 32px 40px;
-            background: var(--gradient-glow);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .systems-conclusion p {
-            font-size: 18px;
-            color: var(--text-primary);
-            line-height: 1.7;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .systems-conclusion strong {
-            color: var(--accent-green);
-        }
-
-        /* Use Cases Section */
-        .use-cases {
-            background: transparent;
-        }
-
-        .use-cases-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            align-items: stretch;
-        }
-
-        .use-case-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 32px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .use-case-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-purple);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .use-case-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(168, 85, 247, 0.3);
-            box-shadow: var(--shadow-purple);
-        }
-
-        .use-case-card:hover::before {
-            opacity: 1;
-        }
-
-        .use-case-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            margin-bottom: 24px;
-        }
-
-        .use-case-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--text-primary);
-            min-height: 56px;
-        }
-
-        .use-case-card p {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            flex-grow: 1;
-        }
-
-        /* Market Section */
-        .market {
-            background: transparent;
-        }
-
-        .profit-calculator {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 48px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .calculator-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            text-align: center;
-            color: var(--text-primary);
-        }
-
-        .calculator-subtitle {
-            font-size: 15px;
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .slider-container {
-            margin-bottom: 48px;
-        }
-
-        .slider-label {
-            display: block;
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .slider-label span {
-            font-size: 28px;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .slider {
-            width: 100%;
-            height: 8px;
-            border-radius: 4px;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            outline: none;
-            -webkit-appearance: none;
-            margin-bottom: 16px;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            cursor: pointer;
-            box-shadow: 0 4px 16px rgba(0, 255, 136, 0.4);
-            transition: transform 0.2s ease;
-        }
-
-        .slider::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-        }
-
-        .slider::-moz-range-thumb {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 4px 16px rgba(0, 255, 136, 0.4);
-        }
-
-        .slider-marks {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .profit-results {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .profit-card {
-            padding: 28px;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .profit-card:hover {
-            border-color: var(--accent-green);
-        }
-
-        .profit-card.highlight-profit {
-            background: var(--gradient-glow);
-            border-color: var(--accent-green);
-        }
-
-        .profit-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .profit-amount {
-            font-size: 32px;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-        }
-
-        .profit-note {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .market-context {
-            padding-top: 32px;
-            border-top: 1px solid var(--border-glass);
-        }
-
-        .market-context h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .context-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        .context-item {
-            text-align: center;
-            padding: 20px;
-            background: var(--bg-glass);
-            border-radius: 12px;
-        }
-
-        .context-item strong {
-            display: block;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--accent-green);
-            margin-bottom: 4px;
-        }
-
-        .context-item span {
-            font-size: 13px;
-            color: var(--text-secondary);
-        }
-
-        /* Timeline Section */
-        .timeline {
-            background: transparent;
-        }
-
-        .timeline-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 32px;
-            padding: 32px 0;
-            border-bottom: 1px solid var(--border-glass);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:last-child {
-            border-bottom: none;
-        }
-
-        .timeline-item:hover {
-            padding-left: 16px;
-        }
-
-        .timeline-date {
-            min-width: 100px;
-            font-size: 18px;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .timeline-content h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-
-        .timeline-content p {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* CTA Section */
-        .cta {
-            background: var(--gradient-glow);
-            border-top: 1px solid var(--border-glass);
-            border-bottom: 1px solid var(--border-glass);
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: clamp(28px, 4vw, 40px);
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--text-primary);
-        }
-
-        .cta > .container > p {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-card);
-            border-top: 1px solid var(--border-glass);
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .problem-grid,
-            .use-cases-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .systems-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .why-now-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .schema-flow {
-                flex-wrap: wrap;
-            }
-
-            .schema-step {
-                flex: 0 0 calc(50% - 16px);
-            }
-
-            .schema-arrow {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .problem-grid,
-            .use-cases-grid,
-            .solution-features {
-                grid-template-columns: 1fr;
-            }
-
-            .problem-card h3,
-            .use-case-card h3 {
-                min-height: auto;
-            }
-
-            .profit-results,
-            .context-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .schema-step {
-                flex: 0 0 100%;
-            }
-
-            .timeline-item {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .hero h1 {
-                letter-spacing: -1px;
-            }
-
-            section {
-                padding: 80px 0;
-            }
-
-            .profit-calculator,
-            .smp-schema {
-                padding: 32px 24px;
-            }
-
-            .cost-comparison {
-                padding: 28px 20px;
-            }
-
-            .cost-value {
-                font-size: 20px;
-            }
-        }
-
-        /* Language switching */
         .lang-content {
             display: none;
         }
 
         .lang-content.active {
             display: block;
+        }
+
+        @media (max-width: 768px) {
+            .maintenance-card {
+                padding: 48px 32px;
+            }
+
+            .maintenance-icon {
+                font-size: 60px;
+            }
+
+            .maintenance-title {
+                font-size: 24px;
+            }
+
+            .maintenance-subtitle {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -1501,967 +287,50 @@
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
 
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">EUNOIA</div>
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="#problem" class="nav-link">Проблема</a></li>
-                        <li><a href="#solution" class="nav-link">Решение</a></li>
-                        <li><a href="#why-now" class="nav-link">Почему сейчас</a></li>
-                        <li><a href="#use-cases" class="nav-link">Кейсы</a></li>
-                        <li><a href="#rates" class="nav-link">Рынок</a></li>
-                        <li><a href="#contact" class="nav-link">Контакты</a></li>
-                    </ul>
-                </nav>
-                <div class="lang-switcher">
-                    <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
-                    <button class="lang-btn" onclick="switchLang('en')">EN</button>
+    <div class="maintenance-container">
+        <div class="maintenance-card">
+            <div class="logo">EUNOIA</div>
+            
+            <!-- Russian Content -->
+            <div id="ru-content" class="lang-content active">
+                <div class="maintenance-icon">🔧</div>
+                <h1 class="maintenance-title">Техническое обслуживание</h1>
+                <p class="maintenance-subtitle">Мы проводим техническое обслуживание сайта. Скоро мы вернёмся!</p>
+                
+                <div class="maintenance-info">
+                    <p>В настоящее время мы обновляем наш сайт, чтобы предложить вам лучший опыт.</p>
+                    <p>Мы вернёмся в ближайшее время. Спасибо за ваше терпение!</p>
                 </div>
+
+                <div class="contact-info">
+                    <p>Если у вас срочный вопрос, свяжитесь с нами:</p>
+                    <a href="tel:+77752377700" class="contact-link">📞 +7 775 237 77 00</a>
+                </div>
+            </div>
+
+            <!-- English Content -->
+            <div id="en-content" class="lang-content">
+                <div class="maintenance-icon">🔧</div>
+                <h1 class="maintenance-title">Under Maintenance</h1>
+                <p class="maintenance-subtitle">We're performing maintenance on our website. We'll be back soon!</p>
+                
+                <div class="maintenance-info">
+                    <p>We're currently updating our site to provide you with a better experience.</p>
+                    <p>We'll be back shortly. Thank you for your patience!</p>
+                </div>
+
+                <div class="contact-info">
+                    <p>If you have an urgent inquiry, please contact us:</p>
+                    <a href="tel:+77752377700" class="contact-link">📞 +7 775 237 77 00</a>
+                </div>
+            </div>
+
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLang('ru')">RU</button>
+                <button class="lang-btn" onclick="switchLang('en')">EN</button>
             </div>
         </div>
-    </header>
-
-    <!-- Russian Content -->
-    <div id="ru-content" class="lang-content active">
-        <section class="hero visible">
-            <div class="hero-visual">
-                <div class="hero-orb hero-orb-1"></div>
-                <div class="hero-orb hero-orb-2"></div>
-            </div>
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badge">
-                        <span class="hero-badge-dot"></span>
-                        Инвестиционная возможность
-                    </div>
-                    <h1>EUNOIA</h1>
-                    <p class="subtitle">Автоматизируем выплаты и учёт платежей</p>
-                    <p class="hero-description">Сервис для мгновенных выплат физическим лицам по номеру телефона через СМП Казахстана</p>
-                    <div class="hero-cta">
-                        <a href="#contact" class="btn btn-primary">Обсудить инвестиции</a>
-                        <a href="#solution" class="btn btn-secondary">Узнать больше</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="problem" class="problem">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Проблема</span>
-                    <h2 class="section-title">Почему это важно</h2>
-                    <p class="section-subtitle">Компании в Казахстане сталкиваются с серьёзными проблемами при массовых выплатах</p>
-                </div>
-                <div class="problem-grid">
-                    <div class="problem-card">
-                        <div class="problem-icon">⏱️</div>
-                        <h3>Медленные переводы</h3>
-                        <p>1-3 дня на выплаты сотрудникам. Банковские переводы требуют реквизитов и ручной обработки.</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-icon">💸</div>
-                        <h3>Высокие затраты</h3>
-                        <p>Массовые выплаты отнимают время сотрудников. Ошибки при вводе данных = дополнительные расходы.</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-icon">🔐</div>
-                        <h3>Сложность для получателей</h3>
-                        <p>Людям нужно предоставлять банковские реквизиты — это барьер для получения денег.</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-icon">⚙️</div>
-                        <h3>Нет автоматизации</h3>
-                        <p>Ручная обработка каждой выплаты. Нет интеграции с бизнес-системами.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="solution" class="solution">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Решение</span>
-                    <h2 class="section-title">Как мы это решаем</h2>
-                    <p class="section-subtitle">EUNOIA позволяет отправлять деньги, используя только номер телефона</p>
-                </div>
-                <div class="solution-content">
-                    <div class="solution-features">
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Отправка денег через API — только номер телефона</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Деньги на счёте за 10 секунд</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Работа с 11 банками через СМП</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Полная автоматизация — без ручных операций</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Полный аудит всех транзакций</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">REST API с документацией</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Панель аналитики в реальном времени</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">До 1,000 выплат одним запросом</span>
-                        </div>
-                    </div>
-
-                    <div class="smp-schema">
-                        <h3>Как это работает через СМП</h3>
-                        <div class="schema-flow">
-                            <div class="schema-step">
-                                <div class="step-icon">🏢</div>
-                                <div class="step-content">
-                                    <h4>Компания</h4>
-                                    <p>Отправляет запрос через API EUNOIA</p>
-                                </div>
-                            </div>
-                            <div class="schema-arrow">→</div>
-                            <div class="schema-step">
-                                <div class="step-icon">⚡</div>
-                                <div class="step-content">
-                                    <h4>EUNOIA</h4>
-                                    <p>Обрабатывает и отправляет в СМП</p>
-                                </div>
-                            </div>
-                            <div class="schema-arrow">→</div>
-                            <div class="schema-step">
-                                <div class="step-icon">🏦</div>
-                                <div class="step-content">
-                                    <h4>СМП Казахстана</h4>
-                                    <p>Система мгновенных платежей</p>
-                                </div>
-                            </div>
-                            <div class="schema-arrow">→</div>
-                            <div class="schema-step">
-                                <div class="step-icon">📱</div>
-                                <div class="step-content">
-                                    <h4>Получатель</h4>
-                                    <p>Деньги за 10 секунд</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="why-now" class="why-now">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Почему сейчас</span>
-                    <h2 class="section-title">Окно возможностей</h2>
-                    <p class="section-subtitle">Почему именно сейчас и как мы можем быть дешевле Visa/Mastercard</p>
-                </div>
-                <div class="why-now-content">
-                    <div class="why-now-left">
-                        <h3>Идеальный момент для запуска</h3>
-                        <p>Казахстан создал уникальную инфраструктуру — СМП (Система Мгновенных Платежей), которая позволяет обходить традиционные карточные сети и снижать комиссии в 10 раз.</p>
-                        <div class="timing-reasons">
-                            <div class="timing-item">
-                                <div class="timing-icon">🏦</div>
-                                <div class="timing-text">
-                                    <h4>СМП запущена и работает</h4>
-                                    <p>11 крупнейших банков уже подключены к системе мгновенных платежей</p>
-                                </div>
-                            </div>
-                            <div class="timing-item">
-                                <div class="timing-icon">📋</div>
-                                <div class="timing-text">
-                                    <h4>Регуляторная поддержка</h4>
-                                    <p>Национальный банк РК активно развивает безналичные платежи</p>
-                                </div>
-                            </div>
-                            <div class="timing-item">
-                                <div class="timing-icon">🚀</div>
-                                <div class="timing-text">
-                                    <h4>Рынок не занят</h4>
-                                    <p>B2B2C instant payouts — новая ниша без сильных игроков</p>
-                                </div>
-                            </div>
-                            <div class="timing-item">
-                                <div class="timing-icon">📈</div>
-                                <div class="timing-text">
-                                    <h4>Рост гиг-экономики</h4>
-                                    <p>Такси, доставка, фриланс — все требуют мгновенных выплат</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cost-comparison">
-                        <h3>Почему мы дешевле Visa/MC</h3>
-                        <div class="cost-breakdown">
-                            <div class="cost-item visa-mc">
-                                <div class="cost-label">
-                                    <div class="cost-label-icon">💳</div>
-                                    <span>Visa / Mastercard</span>
-                                </div>
-                                <div class="cost-value">2-3%</div>
-                            </div>
-                            <div class="cost-item visa-mc">
-                                <div class="cost-label">
-                                    <div class="cost-label-icon">🔄</div>
-                                    <span>Interpay</span>
-                                </div>
-                                <div class="cost-value">1.1%</div>
-                            </div>
-                            <div class="cost-item smp">
-                                <div class="cost-label">
-                                    <div class="cost-label-icon">⚡</div>
-                                    <span>EUNOIA (СМП)</span>
-                                </div>
-                                <div class="cost-value">&lt;1%</div>
-                            </div>
-                        </div>
-                        <div class="cost-explanation">
-                            <h4>Как это работает</h4>
-                            <ul>
-                                <li>СМП — прямые переводы между банками, минуя карточные сети</li>
-                                <li>Нет комиссий Visa/MC за интерчейндж и процессинг</li>
-                                <li>Нет эквайринга — деньги идут напрямую на счёт</li>
-                                <li>Фиксированная низкая комиссия СМП (~₸10 за перевод)</li>
-                                <li>Автоматизация снижает операционные расходы</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="global-systems" class="global-systems">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Мировой опыт</span>
-                    <h2 class="section-title">Проверенная модель</h2>
-                    <p class="section-subtitle">Компании-единороги, выросшие на национальных платёжных системах</p>
-                </div>
-                <p class="systems-intro">Каждая страна с развитой системой мгновенных платежей породила экосистему финтех-компаний. Мы применяем проверенную модель на рынке Казахстана.</p>
-                
-                <div class="systems-grid">
-                    <div class="system-card india">
-                        <div class="system-header">
-                            <span class="system-flag">🇮🇳</span>
-                            <div class="system-info">
-                                <h3>Индия</h3>
-                                <span class="system-name">UPI (Unified Payments Interface)</span>
-                            </div>
-                        </div>
-                        <div class="system-stats">
-                            <div class="system-stat">
-                                <div class="system-stat-value">2016</div>
-                                <div class="system-stat-label">Запуск</div>
-                            </div>
-                            <div class="system-stat">
-                                <div class="system-stat-value">$2T+</div>
-                                <div class="system-stat-label">Объём/год</div>
-                            </div>
-                        </div>
-                        <div class="system-companies">
-                            <h4>Компании использующие UPI</h4>
-                            <div class="company-tags">
-                                <span class="company-tag">Razorpay<span class="valuation">$7.5B</span></span>
-                                <span class="company-tag">PayTM<span class="valuation">$6B</span></span>
-                                <span class="company-tag">PhonePe<span class="valuation">$12B</span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="system-card brazil">
-                        <div class="system-header">
-                            <span class="system-flag">🇧🇷</span>
-                            <div class="system-info">
-                                <h3>Бразилия</h3>
-                                <span class="system-name">PIX</span>
-                            </div>
-                        </div>
-                        <div class="system-stats">
-                            <div class="system-stat">
-                                <div class="system-stat-value">2020</div>
-                                <div class="system-stat-label">Запуск</div>
-                            </div>
-                            <div class="system-stat">
-                                <div class="system-stat-value">$1.5T+</div>
-                                <div class="system-stat-label">Объём/год</div>
-                            </div>
-                        </div>
-                        <div class="system-companies">
-                            <h4>Компании использующие PIX</h4>
-                            <div class="company-tags">
-                                <span class="company-tag">Nubank<span class="valuation">$45B</span></span>
-                                <span class="company-tag">PicPay<span class="valuation">$5B</span></span>
-                                <span class="company-tag">Stone<span class="valuation">$4B</span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="system-card russia">
-                        <div class="system-header">
-                            <span class="system-flag">🇷🇺</span>
-                            <div class="system-info">
-                                <h3>Россия</h3>
-                                <span class="system-name">СБП (Система Быстрых Платежей)</span>
-                            </div>
-                        </div>
-                        <div class="system-stats">
-                            <div class="system-stat">
-                                <div class="system-stat-value">2019</div>
-                                <div class="system-stat-label">Запуск</div>
-                            </div>
-                            <div class="system-stat">
-                                <div class="system-stat-value">$1T+</div>
-                                <div class="system-stat-label">Объём/год</div>
-                            </div>
-                        </div>
-                        <div class="system-companies">
-                            <h4>Компании использующие СБП</h4>
-                            <div class="company-tags">
-                                <span class="company-tag">Тинькофф<span class="valuation">$20B</span></span>
-                                <span class="company-tag">Qiwi<span class="valuation">$1B</span></span>
-                                <span class="company-tag">ЮMoney<span class="valuation">$2B</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="systems-conclusion">
-                    <p>СМП Казахстана запущена в <strong>2023 году</strong> — рынок только формируется. EUNOIA имеет возможность стать ключевым игроком B2B2C-выплат, как Razorpay стал для Индии.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="use-cases" class="use-cases">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Кейсы</span>
-                    <h2 class="section-title">Примеры использования</h2>
-                    <p class="section-subtitle">Решения для разных индустрий</p>
-                </div>
-                <div class="use-cases-grid">
-                    <div class="use-case-card">
-                        <div class="use-case-icon">🚕</div>
-                        <h3>Таксопарки</h3>
-                        <p>Ежедневные выплаты водителям. До 1,000 выплат одним запросом. Экономия 40+ часов в месяц.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <div class="use-case-icon">🛒</div>
-                        <h3>Маркетплейсы</h3>
-                        <p>Выплаты продавцам и фрилансерам по завершении заказов. Интеграция за 1-2 часа.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <div class="use-case-icon">🛡️</div>
-                        <h3>Страховые компании</h3>
-                        <p>Срочные выплаты клиентам. Только номер телефона. Полный аудит для регулятора.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <div class="use-case-icon">📦</div>
-                        <h3>Службы доставки</h3>
-                        <p>Выплаты курьерам в конце смены. Массовые переводы. Статистика в реальном времени.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="rates" class="market">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Рынок</span>
-                    <h2 class="section-title">Рыночная возможность</h2>
-                    <p class="section-subtitle">Пример: Рынок такси в Алматы</p>
-                </div>
-                <div class="profit-calculator">
-                    <h3 class="calculator-title">Калькулятор прибыли</h3>
-                    <p class="calculator-subtitle">Выберите комиссию и посмотрите потенциальную прибыль</p>
-                    
-                    <div class="slider-container">
-                        <label class="slider-label">
-                            Комиссия: <span id="commission-value">&lt;1%</span>
-                        </label>
-                        <input type="range" id="commission-slider" min="0" max="1.1" step="0.01" value="0.5" class="slider">
-                        <div class="slider-marks">
-                            <span>0%</span>
-                            <span>&lt;1% (EUNOIA)</span>
-                                <span>1.1% (Interpay)</span>
-                            </div>
-                        </div>
-
-                        <div class="profit-results">
-                            <div class="profit-card">
-                                <div class="profit-label">Месячная прибыль</div>
-                            <div class="profit-amount" id="monthly-profit">₸60 млн</div>
-                            <div class="profit-note">При объёме ₸24 млрд/месяц</div>
-                        </div>
-                        <div class="profit-card">
-                            <div class="profit-label">Годовая прибыль</div>
-                            <div class="profit-amount" id="annual-profit">₸720 млн</div>
-                            <div class="profit-note">При объёме ₸288 млрд/год</div>
-                        </div>
-                        <div class="profit-card highlight-profit">
-                            <div class="profit-label">При 20% рынка</div>
-                            <div class="profit-amount" id="market-profit">₸144 млн</div>
-                            <div class="profit-note">₸57.6 млрд годового оборота</div>
-                        </div>
-                    </div>
-
-                    <div class="market-context">
-                        <h4>Контекст рынка</h4>
-                        <div class="context-grid">
-                            <div class="context-item">
-                                <strong>60,000+</strong>
-                                <span>водителей такси в Алматы</span>
-                            </div>
-                            <div class="context-item">
-                                <strong>₸24 млрд</strong>
-                                <span>месячный объём выплат</span>
-                            </div>
-                            <div class="context-item">
-                                <strong>₸288 млрд</strong>
-                                <span>годовой объём рынка</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="timeline" class="timeline">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Roadmap</span>
-                    <h2 class="section-title">Дорожная карта</h2>
-                    <p class="section-subtitle">Ключевые этапы развития проекта</p>
-                </div>
-                <div class="timeline-container">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Q1 2026</div>
-                        <div class="timeline-content">
-                            <h3>Завершение MVP</h3>
-                            <p>Полная интеграция с платёжными системами, запуск пилотных клиентов</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Q2 2026</div>
-                        <div class="timeline-content">
-                            <h3>Получение лицензии</h3>
-                            <p>Лицензия платёжной организации</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Q4 2026</div>
-                        <div class="timeline-content">
-                            <h3>Запуск в продакшн</h3>
-                            <p>Первые платящие клиенты, первые доходы, масштабирование</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2027</div>
-                        <div class="timeline-content">
-                            <h3>Масштабирование</h3>
-                            <p>30+ клиентов, $500K+ годовой доход, расширение на другие рынки</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="cta">
-            <div class="container">
-                <h2>Готовы обсудить инвестиции?</h2>
-                <p>Свяжитесь с нами для подробной презентации и финансовой модели</p>
-                <div class="cta-buttons">
-                    <a href="tel:+77752377700" class="btn btn-primary">📞 Позвонить</a>
-                </div>
-            </div>
-        </section>
     </div>
-
-    <!-- English Content -->
-    <div id="en-content" class="lang-content">
-        <section class="hero visible">
-            <div class="hero-visual">
-                <div class="hero-orb hero-orb-1"></div>
-                <div class="hero-orb hero-orb-2"></div>
-            </div>
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badge">
-                        <span class="hero-badge-dot"></span>
-                        Investment Opportunity
-                    </div>
-                    <h1>EUNOIA</h1>
-                    <p class="subtitle">Automate payouts and payment accounting</p>
-                    <p class="hero-description">Service for instant payouts to individuals by phone number through Kazakhstan's SMP</p>
-                    <div class="hero-cta">
-                        <a href="#contact" class="btn btn-primary">Discuss Investment</a>
-                        <a href="#solution" class="btn btn-secondary">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="problem" class="problem">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Problem</span>
-                    <h2 class="section-title">Why This Matters</h2>
-                    <p class="section-subtitle">Companies in Kazakhstan face serious challenges with mass payouts</p>
-                </div>
-                <div class="problem-grid">
-                    <div class="problem-card">
-                        <div class="problem-icon">⏱️</div>
-                        <h3>Slow Payments</h3>
-                        <p>1-3 days for payouts to employees. Bank transfers require account details and manual processing.</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-icon">💸</div>
-                        <h3>High Costs</h3>
-                        <p>Mass payouts consume employee time. Data entry errors = additional expenses.</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-icon">🔐</div>
-                        <h3>Recipient Friction</h3>
-                        <p>People need to provide bank details — this creates a barrier to receiving money.</p>
-                    </div>
-                    <div class="problem-card">
-                        <div class="problem-icon">⚙️</div>
-                        <h3>No Automation</h3>
-                        <p>Manual processing of each payout. No integration with business systems.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="solution" class="solution">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Solution</span>
-                    <h2 class="section-title">How We Solve It</h2>
-                    <p class="section-subtitle">EUNOIA enables sending money using only a phone number</p>
-                </div>
-                <div class="solution-content">
-                    <div class="solution-features">
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Send money via API — just a phone number</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Money in account within 10 seconds</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Works with 11 banks via SMP</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Full automation — no manual operations</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Full transaction audit trail</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Documented REST API</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Real-time analytics dashboard</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span class="feature-text">Up to 1,000 payouts in one request</span>
-                        </div>
-                    </div>
-
-                    <div class="smp-schema">
-                        <h3>How It Works Through SMP</h3>
-                        <div class="schema-flow">
-                            <div class="schema-step">
-                                <div class="step-icon">🏢</div>
-                                <div class="step-content">
-                                    <h4>Company</h4>
-                                    <p>Sends request via EUNOIA API</p>
-                                </div>
-                            </div>
-                            <div class="schema-arrow">→</div>
-                            <div class="schema-step">
-                                <div class="step-icon">⚡</div>
-                                <div class="step-content">
-                                    <h4>EUNOIA</h4>
-                                    <p>Processes and sends to SMP</p>
-                                </div>
-                            </div>
-                            <div class="schema-arrow">→</div>
-                            <div class="schema-step">
-                                <div class="step-icon">🏦</div>
-                                <div class="step-content">
-                                    <h4>Kazakhstan SMP</h4>
-                                    <p>Instant Payment System</p>
-                                </div>
-                            </div>
-                            <div class="schema-arrow">→</div>
-                            <div class="schema-step">
-                                <div class="step-icon">📱</div>
-                                <div class="step-content">
-                                    <h4>Recipient</h4>
-                                    <p>Money in 10 seconds</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="why-now" class="why-now">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Why Now</span>
-                    <h2 class="section-title">Window of Opportunity</h2>
-                    <p class="section-subtitle">Why now and how we can be cheaper than Visa/Mastercard</p>
-                </div>
-                <div class="why-now-content">
-                    <div class="why-now-left">
-                        <h3>Perfect Timing for Launch</h3>
-                        <p>Kazakhstan has built unique infrastructure — SMP (Instant Payment System), which allows bypassing traditional card networks and reducing fees by 10x.</p>
-                        <div class="timing-reasons">
-                            <div class="timing-item">
-                                <div class="timing-icon">🏦</div>
-                                <div class="timing-text">
-                                    <h4>SMP is Live</h4>
-                                    <p>11 major banks already connected to the instant payment system</p>
-                                </div>
-                            </div>
-                            <div class="timing-item">
-                                <div class="timing-icon">📋</div>
-                                <div class="timing-text">
-                                    <h4>Regulatory Support</h4>
-                                    <p>National Bank of Kazakhstan actively promotes cashless payments</p>
-                                </div>
-                            </div>
-                            <div class="timing-item">
-                                <div class="timing-icon">🚀</div>
-                                <div class="timing-text">
-                                    <h4>Untapped Market</h4>
-                                    <p>B2B2C instant payouts — new niche with no strong players</p>
-                                </div>
-                            </div>
-                            <div class="timing-item">
-                                <div class="timing-icon">📈</div>
-                                <div class="timing-text">
-                                    <h4>Gig Economy Growth</h4>
-                                    <p>Taxi, delivery, freelance — all require instant payouts</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cost-comparison">
-                        <h3>Why We're Cheaper Than Visa/MC</h3>
-                        <div class="cost-breakdown">
-                            <div class="cost-item visa-mc">
-                                <div class="cost-label">
-                                    <div class="cost-label-icon">💳</div>
-                                    <span>Visa / Mastercard</span>
-                                </div>
-                                <div class="cost-value">2-3%</div>
-                            </div>
-                            <div class="cost-item visa-mc">
-                                <div class="cost-label">
-                                    <div class="cost-label-icon">🔄</div>
-                                    <span>Interpay</span>
-                                </div>
-                                <div class="cost-value">1.1%</div>
-                            </div>
-                            <div class="cost-item smp">
-                                <div class="cost-label">
-                                    <div class="cost-label-icon">⚡</div>
-                                    <span>EUNOIA (SMP)</span>
-                                </div>
-                                <div class="cost-value">&lt;1%</div>
-                            </div>
-                        </div>
-                        <div class="cost-explanation">
-                            <h4>How It Works</h4>
-                            <ul>
-                                <li>SMP — direct bank-to-bank transfers, bypassing card networks</li>
-                                <li>No Visa/MC interchange and processing fees</li>
-                                <li>No acquiring — money goes directly to account</li>
-                                <li>Fixed low SMP fee (~₸10 per transfer)</li>
-                                <li>Automation reduces operational costs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="global-systems" class="global-systems">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Global Proof</span>
-                    <h2 class="section-title">Proven Model</h2>
-                    <p class="section-subtitle">Unicorns built on national instant payment systems</p>
-                </div>
-                <p class="systems-intro">Every country with a developed instant payment system has spawned a fintech ecosystem. We apply a proven model to the Kazakhstan market.</p>
-                
-                <div class="systems-grid">
-                    <div class="system-card india">
-                        <div class="system-header">
-                            <span class="system-flag">🇮🇳</span>
-                            <div class="system-info">
-                                <h3>India</h3>
-                                <span class="system-name">UPI (Unified Payments Interface)</span>
-                            </div>
-                        </div>
-                        <div class="system-stats">
-                            <div class="system-stat">
-                                <div class="system-stat-value">2016</div>
-                                <div class="system-stat-label">Launch</div>
-                            </div>
-                            <div class="system-stat">
-                                <div class="system-stat-value">$2T+</div>
-                                <div class="system-stat-label">Volume/year</div>
-                            </div>
-                        </div>
-                        <div class="system-companies">
-                            <h4>Companies using UPI</h4>
-                            <div class="company-tags">
-                                <span class="company-tag">Razorpay<span class="valuation">$7.5B</span></span>
-                                <span class="company-tag">PayTM<span class="valuation">$6B</span></span>
-                                <span class="company-tag">PhonePe<span class="valuation">$12B</span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="system-card brazil">
-                        <div class="system-header">
-                            <span class="system-flag">🇧🇷</span>
-                            <div class="system-info">
-                                <h3>Brazil</h3>
-                                <span class="system-name">PIX</span>
-                            </div>
-                        </div>
-                        <div class="system-stats">
-                            <div class="system-stat">
-                                <div class="system-stat-value">2020</div>
-                                <div class="system-stat-label">Launch</div>
-                            </div>
-                            <div class="system-stat">
-                                <div class="system-stat-value">$1.5T+</div>
-                                <div class="system-stat-label">Volume/year</div>
-                            </div>
-                        </div>
-                        <div class="system-companies">
-                            <h4>Companies using PIX</h4>
-                            <div class="company-tags">
-                                <span class="company-tag">Nubank<span class="valuation">$45B</span></span>
-                                <span class="company-tag">PicPay<span class="valuation">$5B</span></span>
-                                <span class="company-tag">Stone<span class="valuation">$4B</span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="system-card russia">
-                        <div class="system-header">
-                            <span class="system-flag">🇷🇺</span>
-                            <div class="system-info">
-                                <h3>Russia</h3>
-                                <span class="system-name">SBP (Fast Payments System)</span>
-                            </div>
-                        </div>
-                        <div class="system-stats">
-                            <div class="system-stat">
-                                <div class="system-stat-value">2019</div>
-                                <div class="system-stat-label">Launch</div>
-                            </div>
-                            <div class="system-stat">
-                                <div class="system-stat-value">$1T+</div>
-                                <div class="system-stat-label">Volume/year</div>
-                            </div>
-                        </div>
-                        <div class="system-companies">
-                            <h4>Companies using SBP</h4>
-                            <div class="company-tags">
-                                <span class="company-tag">Tinkoff<span class="valuation">$20B</span></span>
-                                <span class="company-tag">Qiwi<span class="valuation">$1B</span></span>
-                                <span class="company-tag">YooMoney<span class="valuation">$2B</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="systems-conclusion">
-                    <p>Kazakhstan's SMP launched in <strong>2023</strong> — the market is just forming. EUNOIA has the opportunity to become the key B2B2C payout player, like Razorpay became for India.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="use-cases" class="use-cases">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Use Cases</span>
-                    <h2 class="section-title">Industry Solutions</h2>
-                    <p class="section-subtitle">Solutions for different industries</p>
-                </div>
-                <div class="use-cases-grid">
-                    <div class="use-case-card">
-                        <div class="use-case-icon">🚕</div>
-                        <h3>Taxi Fleets</h3>
-                        <p>Daily driver payouts. Up to 1,000 payouts in one request. Save 40+ hours monthly.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <div class="use-case-icon">🛒</div>
-                        <h3>Marketplaces</h3>
-                        <p>Payouts to sellers and freelancers upon order completion. Integration in 1-2 hours.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <div class="use-case-icon">🛡️</div>
-                        <h3>Insurance Companies</h3>
-                        <p>Urgent client payouts. Just phone number. Full audit trail for regulators.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <div class="use-case-icon">📦</div>
-                        <h3>Delivery Services</h3>
-                        <p>End-of-shift courier payouts. Mass transfers. Real-time statistics.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="rates" class="market">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Market</span>
-                    <h2 class="section-title">Market Opportunity</h2>
-                    <p class="section-subtitle">Example: Taxi Market in Almaty</p>
-                </div>
-                <div class="profit-calculator">
-                    <h3 class="calculator-title">Profit Calculator</h3>
-                    <p class="calculator-subtitle">Select commission rate and see potential profit</p>
-                    
-                    <div class="slider-container">
-                        <label class="slider-label">
-                            Commission: <span id="commission-value-en">&lt;1%</span>
-                        </label>
-                        <input type="range" id="commission-slider-en" min="0" max="1.1" step="0.01" value="0.5" class="slider">
-                        <div class="slider-marks">
-                            <span>0%</span>
-                            <span>&lt;1% (EUNOIA)</span>
-                                <span>1.1% (Interpay)</span>
-                            </div>
-                        </div>
-
-                        <div class="profit-results">
-                            <div class="profit-card">
-                                <div class="profit-label">Monthly Profit</div>
-                            <div class="profit-amount" id="monthly-profit-en">₸60M</div>
-                            <div class="profit-note">At ₸24B/month volume</div>
-                        </div>
-                        <div class="profit-card">
-                            <div class="profit-label">Annual Profit</div>
-                            <div class="profit-amount" id="annual-profit-en">₸720M</div>
-                            <div class="profit-note">At ₸288B/year volume</div>
-                        </div>
-                        <div class="profit-card highlight-profit">
-                            <div class="profit-label">At 20% Market</div>
-                            <div class="profit-amount" id="market-profit-en">₸144M</div>
-                            <div class="profit-note">₸57.6B annual turnover</div>
-                        </div>
-                    </div>
-
-                    <div class="market-context">
-                        <h4>Market Context</h4>
-                        <div class="context-grid">
-                            <div class="context-item">
-                                <strong>60,000+</strong>
-                                <span>taxi drivers in Almaty</span>
-                            </div>
-                            <div class="context-item">
-                                <strong>₸24B</strong>
-                                <span>monthly payout volume</span>
-                            </div>
-                            <div class="context-item">
-                                <strong>₸288B</strong>
-                                <span>annual market size</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="timeline" class="timeline">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Roadmap</span>
-                    <h2 class="section-title">Development Roadmap</h2>
-                    <p class="section-subtitle">Key project milestones</p>
-                </div>
-                <div class="timeline-container">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Q1 2026</div>
-                        <div class="timeline-content">
-                            <h3>MVP Completion</h3>
-                            <p>Full integration with payment systems, pilot customer launch</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Q2 2026</div>
-                        <div class="timeline-content">
-                            <h3>License Acquisition</h3>
-                            <p>Payment organization license</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Q4 2026</div>
-                        <div class="timeline-content">
-                            <h3>Production Launch</h3>
-                            <p>First paying customers, initial revenue, scaling</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2027</div>
-                        <div class="timeline-content">
-                            <h3>Scaling</h3>
-                            <p>30+ customers, $500K+ annual revenue, market expansion</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="cta">
-            <div class="container">
-                <h2>Ready to Discuss Investment?</h2>
-                <p>Contact us for detailed presentation and financial model</p>
-                <div class="cta-buttons">
-                    <a href="tel:+77752377700" class="btn btn-primary">📞 Call</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>© 2025 EUNOIA. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script>
         function switchLang(lang) {
@@ -2473,127 +342,8 @@
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
-            updateNavLinks(lang);
         }
-
-        function updateNavLinks(lang) {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const translations = {
-                ru: ['Проблема', 'Решение', 'Почему сейчас', 'Кейсы', 'Рынок', 'Контакты'],
-                en: ['Problem', 'Solution', 'Why Now', 'Cases', 'Market', 'Contact']
-            };
-            navLinks.forEach((link, index) => {
-                if (translations[lang][index]) {
-                    link.textContent = translations[lang][index];
-                }
-            });
-        }
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Observe sections
-            document.querySelectorAll('section').forEach(section => {
-                observer.observe(section);
-            });
-
-            // Smooth scroll for nav links
-            document.querySelectorAll('.nav-link, .btn').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href && href.startsWith('#')) {
-                        e.preventDefault();
-                        const target = document.querySelector(href);
-                        if (target) {
-                            const headerHeight = document.querySelector('header').offsetHeight;
-                            window.scrollTo({
-                                top: target.offsetTop - headerHeight,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
-            });
-
-            // Profit Calculator
-            const monthlyVolume = 24000000000;
-            const annualVolume = 288000000000;
-            const market20Volume = 57600000000;
-
-            function formatNumber(num, lang) {
-                if (lang === 'en') {
-                    if (num >= 1000000000) {
-                        return '₸' + (num / 1000000000).toFixed(1) + 'B';
-                    } else if (num >= 1000000) {
-                        return '₸' + (num / 1000000).toFixed(0) + 'M';
-                    }
-                } else {
-                    if (num >= 1000000000) {
-                        return '₸' + (num / 1000000000).toFixed(1) + ' млрд';
-                    } else if (num >= 1000000) {
-                        return '₸' + (num / 1000000).toFixed(0) + ' млн';
-                    }
-                }
-                return '₸' + num.toLocaleString();
-            }
-
-            function updateProfit(commission, lang) {
-                const monthlyProfit = monthlyVolume * (commission / 100);
-                const annualProfit = annualVolume * (commission / 100);
-                const marketProfit = market20Volume * (commission / 100);
-
-                if (lang === 'ru') {
-                    document.getElementById('commission-value').textContent = commission.toFixed(2) + '%';
-                    document.getElementById('monthly-profit').textContent = formatNumber(monthlyProfit, 'ru');
-                    document.getElementById('annual-profit').textContent = formatNumber(annualProfit, 'ru');
-                    document.getElementById('market-profit').textContent = formatNumber(marketProfit, 'ru');
-                } else {
-                    document.getElementById('commission-value-en').textContent = commission.toFixed(2) + '%';
-                    document.getElementById('monthly-profit-en').textContent = formatNumber(monthlyProfit, 'en');
-                    document.getElementById('annual-profit-en').textContent = formatNumber(annualProfit, 'en');
-                    document.getElementById('market-profit-en').textContent = formatNumber(marketProfit, 'en');
-                }
-            }
-
-            const sliderRu = document.getElementById('commission-slider');
-            const sliderEn = document.getElementById('commission-slider-en');
-
-            if (sliderRu) {
-                sliderRu.addEventListener('input', function() {
-                    updateProfit(parseFloat(this.value), 'ru');
-                });
-                updateProfit(0.5, 'ru');
-            }
-
-            if (sliderEn) {
-                sliderEn.addEventListener('input', function() {
-                    updateProfit(parseFloat(this.value), 'en');
-                });
-                updateProfit(0.5, 'en');
-            }
-        });
     </script>
 </body>
 </html>
+
