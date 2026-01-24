@@ -1099,6 +1099,11 @@ body {
     color: var(--text-muted);
 }
 
+.slider-marks span:nth-child(2) {
+    color: var(--accent-green);
+    font-weight: 600;
+}
+
 .profit-results {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
