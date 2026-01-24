@@ -15,7 +15,6 @@
     const mobileLinks = document.querySelectorAll('.mobile-menu__link');
     const langBtns = document.querySelectorAll('.lang-btn');
     const sections = document.querySelectorAll('.section');
-    const commissionSlider = document.getElementById('commission-slider');
 
     // Initialize
     function init() {
@@ -167,43 +166,51 @@
 
     // Profit calculator
     function setupCalculator() {
-        if (!commissionSlider) return;
-
         const monthlyVolume = 24000000000; // 24 billion tenge monthly
         const yearlyVolume = monthlyVolume * 12;
 
-        function updateCalculator() {
-            const commission = parseFloat(commissionSlider.value);
+        // Setup calculator for a given suffix ('' for English, '-ru' for Russian)
+        function setupCalc(suffix) {
+            const slider = document.getElementById('commission-slider' + suffix);
+            if (!slider) return;
 
-            const monthlyProfit = monthlyVolume * (commission / 100);
-            const yearlyProfit = yearlyVolume * (commission / 100);
-            const marketShareProfit = yearlyProfit * 0.2; // 20% market share
+            function updateCalculator() {
+                const commission = parseFloat(slider.value);
 
-            // Update displayed values
-            const commissionValue = document.getElementById('commission-value');
-            const monthlyProfitEl = document.getElementById('monthly-profit');
-            const annualProfitEl = document.getElementById('annual-profit');
-            const marketProfitEl = document.getElementById('market-profit');
+                const monthlyProfit = monthlyVolume * (commission / 100);
+                const yearlyProfit = yearlyVolume * (commission / 100);
+                const marketShareProfit = yearlyProfit * 0.2; // 20% market share
 
-            if (commissionValue) {
-                commissionValue.textContent = commission < 1 ? '<1%' : `${commission}%`;
+                // Update displayed values
+                const commissionValue = document.getElementById('commission-value' + suffix);
+                const monthlyProfitEl = document.getElementById('monthly-profit' + suffix);
+                const annualProfitEl = document.getElementById('annual-profit' + suffix);
+                const marketProfitEl = document.getElementById('market-profit' + suffix);
+
+                if (commissionValue) {
+                    commissionValue.textContent = commission < 1 ? '<1%' : `${commission}%`;
+                }
+
+                if (monthlyProfitEl) {
+                    monthlyProfitEl.textContent = formatCurrency(monthlyProfit);
+                }
+
+                if (annualProfitEl) {
+                    annualProfitEl.textContent = formatCurrency(yearlyProfit);
+                }
+
+                if (marketProfitEl) {
+                    marketProfitEl.textContent = formatCurrency(marketShareProfit);
+                }
             }
 
-            if (monthlyProfitEl) {
-                monthlyProfitEl.textContent = formatCurrency(monthlyProfit);
-            }
-
-            if (annualProfitEl) {
-                annualProfitEl.textContent = formatCurrency(yearlyProfit);
-            }
-
-            if (marketProfitEl) {
-                marketProfitEl.textContent = formatCurrency(marketShareProfit);
-            }
+            slider.addEventListener('input', updateCalculator);
+            updateCalculator(); // Initial calculation
         }
 
-        commissionSlider.addEventListener('input', updateCalculator);
-        updateCalculator(); // Initial calculation
+        // Setup both English and Russian calculators
+        setupCalc('');      // English
+        setupCalc('-ru');   // Russian
     }
 
     function formatCurrency(value) {
