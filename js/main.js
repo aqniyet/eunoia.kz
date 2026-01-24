@@ -169,7 +169,7 @@
         const avgPayoutPerDriver = 400000; // 400K tenge per driver per month
 
         // Setup calculator for a given suffix ('' for English, '-ru' for Russian)
-        function setupCalc(suffix, isRussian) {
+        function setupCalc(suffix) {
             const driversSlider = document.getElementById('drivers-slider' + suffix);
             const commissionSlider = document.getElementById('commission-slider' + suffix);
             if (!driversSlider || !commissionSlider) return;
@@ -190,9 +190,6 @@
                 const volumeNoteEl = document.getElementById('volume-note' + suffix);
                 const monthlyProfitEl = document.getElementById('monthly-profit' + suffix);
                 const annualProfitEl = document.getElementById('annual-profit' + suffix);
-                const contextDriversEl = document.getElementById('context-drivers' + suffix);
-                const contextVolumeEl = document.getElementById('context-volume' + suffix);
-                const contextAnnualEl = document.getElementById('context-annual' + suffix);
 
                 // Format drivers number
                 const driversFormatted = drivers.toLocaleString();
@@ -208,32 +205,21 @@
                 }
 
                 if (monthlyVolumeEl) {
-                    monthlyVolumeEl.textContent = formatCurrency(monthlyVolume, isRussian);
+                    monthlyVolumeEl.textContent = formatCurrency(monthlyVolume);
                 }
 
                 if (volumeNoteEl) {
-                    volumeNoteEl.textContent = isRussian
+                    volumeNoteEl.textContent = suffix === '-ru'
                         ? `${driversK} водителей x 400K KZT`
                         : `${driversK} drivers x 400K KZT avg`;
                 }
 
                 if (monthlyProfitEl) {
-                    monthlyProfitEl.textContent = formatCurrency(monthlyProfit, isRussian);
+                    monthlyProfitEl.textContent = formatCurrency(monthlyProfit);
                 }
 
                 if (annualProfitEl) {
-                    annualProfitEl.textContent = formatCurrency(yearlyProfit, isRussian);
-                }
-
-                // Update context section
-                if (contextDriversEl) {
-                    contextDriversEl.textContent = driversFormatted + '+';
-                }
-                if (contextVolumeEl) {
-                    contextVolumeEl.textContent = formatCurrency(monthlyVolume, isRussian);
-                }
-                if (contextAnnualEl) {
-                    contextAnnualEl.textContent = formatCurrency(yearlyVolume, isRussian);
+                    annualProfitEl.textContent = formatCurrency(yearlyProfit);
                 }
             }
 
@@ -243,18 +229,11 @@
         }
 
         // Setup both English and Russian calculators
-        setupCalc('', false);      // English
-        setupCalc('-ru', true);    // Russian
+        setupCalc('');       // English
+        setupCalc('-ru');    // Russian
     }
 
-    function formatCurrency(value, isRussian) {
-        if (value >= 1000000000) {
-            const billions = (value / 1000000000).toFixed(1);
-            return isRussian ? `${billions} млрд KZT` : `${billions}B KZT`;
-        } else if (value >= 1000000) {
-            const millions = Math.round(value / 1000000);
-            return isRussian ? `${millions} млн KZT` : `${millions}M KZT`;
-        }
+    function formatCurrency(value) {
         return `${value.toLocaleString()} KZT`;
     }
 
