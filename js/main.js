@@ -204,7 +204,7 @@
                 }
 
                 if (commissionValue) {
-                    commissionValue.textContent = commission < 1 ? '<1%' : `${commission.toFixed(1)}%`;
+                    commissionValue.textContent = `${commission.toFixed(2)}%`;
                 }
 
                 if (monthlyVolumeEl) {
