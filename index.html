@@ -617,15 +617,27 @@
                 </div>
                 <div class="calculator">
                     <h3 class="calculator__title">Profit Calculator</h3>
-                    <p class="calculator__subtitle">Select commission and see potential profit</p>
+                    <p class="calculator__subtitle">Adjust parameters and see potential profit</p>
+
+                    <div class="slider-container">
+                        <label class="slider-label">
+                            Number of drivers: <span id="drivers-value">60,000</span>
+                        </label>
+                        <input type="range" id="drivers-slider" min="10000" max="150000" step="5000" value="60000" class="slider">
+                        <div class="slider-marks">
+                            <span>10K</span>
+                            <span>60K (Almaty)</span>
+                            <span>150K</span>
+                        </div>
+                    </div>
 
                     <div class="slider-container">
                         <label class="slider-label">
                             Commission: <span id="commission-value">&lt;1%</span>
                         </label>
-                        <input type="range" id="commission-slider" min="0" max="1.1" step="0.01" value="0.5" class="slider">
+                        <input type="range" id="commission-slider" min="0.1" max="1.1" step="0.01" value="0.5" class="slider">
                         <div class="slider-marks">
-                            <span>0%</span>
+                            <span>0.1%</span>
                             <span>&lt;1% (EUNOIA)</span>
                             <span>1.1% (Interpay)</span>
                         </div>
@@ -633,19 +645,19 @@
 
                     <div class="profit-results">
                         <div class="profit-card">
-                            <div class="profit-card__label">Monthly Profit</div>
-                            <div class="profit-card__value" id="monthly-profit">60M KZT</div>
-                            <div class="profit-card__note">At 24B KZT/month volume</div>
+                            <div class="profit-card__label">Monthly Volume</div>
+                            <div class="profit-card__value" id="monthly-volume">24B KZT</div>
+                            <div class="profit-card__note" id="volume-note">60K drivers x 400K KZT avg</div>
                         </div>
                         <div class="profit-card">
-                            <div class="profit-card__label">Annual Profit</div>
-                            <div class="profit-card__value" id="annual-profit">720M KZT</div>
-                            <div class="profit-card__note">At 288B KZT/year volume</div>
+                            <div class="profit-card__label">Monthly Profit</div>
+                            <div class="profit-card__value" id="monthly-profit">120M KZT</div>
+                            <div class="profit-card__note">Your commission revenue</div>
                         </div>
                         <div class="profit-card profit-card--highlight">
-                            <div class="profit-card__label">At 20% Market Share</div>
-                            <div class="profit-card__value" id="market-profit">144M KZT</div>
-                            <div class="profit-card__note">57.6B KZT annual turnover</div>
+                            <div class="profit-card__label">Annual Profit</div>
+                            <div class="profit-card__value" id="annual-profit">1.44B KZT</div>
+                            <div class="profit-card__note">~$3M USD/year</div>
                         </div>
                     </div>
 
@@ -653,15 +665,15 @@
                         <h4>Market Context</h4>
                         <div class="context-grid">
                             <div class="context-item">
-                                <strong>60,000+</strong>
+                                <strong id="context-drivers">60,000+</strong>
                                 <span>taxi drivers in Almaty</span>
                             </div>
                             <div class="context-item">
-                                <strong>24B KZT</strong>
+                                <strong id="context-volume">24B KZT</strong>
                                 <span>monthly payout volume</span>
                             </div>
                             <div class="context-item">
-                                <strong>288B KZT</strong>
+                                <strong id="context-annual">288B KZT</strong>
                                 <span>annual market volume</span>
                             </div>
                         </div>
@@ -1243,15 +1255,27 @@
                 </div>
                 <div class="calculator">
                     <h3 class="calculator__title">Калькулятор прибыли</h3>
-                    <p class="calculator__subtitle">Выберите комиссию и посмотрите потенциальную прибыль</p>
+                    <p class="calculator__subtitle">Настройте параметры и посмотрите потенциальную прибыль</p>
+
+                    <div class="slider-container">
+                        <label class="slider-label">
+                            Количество водителей: <span id="drivers-value-ru">60,000</span>
+                        </label>
+                        <input type="range" id="drivers-slider-ru" min="10000" max="150000" step="5000" value="60000" class="slider">
+                        <div class="slider-marks">
+                            <span>10K</span>
+                            <span>60K (Алматы)</span>
+                            <span>150K</span>
+                        </div>
+                    </div>
 
                     <div class="slider-container">
                         <label class="slider-label">
                             Комиссия: <span id="commission-value-ru">&lt;1%</span>
                         </label>
-                        <input type="range" id="commission-slider-ru" min="0" max="1.1" step="0.01" value="0.5" class="slider">
+                        <input type="range" id="commission-slider-ru" min="0.1" max="1.1" step="0.01" value="0.5" class="slider">
                         <div class="slider-marks">
-                            <span>0%</span>
+                            <span>0.1%</span>
                             <span>&lt;1% (EUNOIA)</span>
                             <span>1.1% (Interpay)</span>
                         </div>
@@ -1259,19 +1283,19 @@
 
                     <div class="profit-results">
                         <div class="profit-card">
-                            <div class="profit-card__label">Месячная прибыль</div>
-                            <div class="profit-card__value" id="monthly-profit-ru">60 млн KZT</div>
-                            <div class="profit-card__note">При объёме 24 млрд KZT/месяц</div>
+                            <div class="profit-card__label">Месячный объём</div>
+                            <div class="profit-card__value" id="monthly-volume-ru">24 млрд KZT</div>
+                            <div class="profit-card__note" id="volume-note-ru">60K водителей x 400K KZT</div>
                         </div>
                         <div class="profit-card">
-                            <div class="profit-card__label">Годовая прибыль</div>
-                            <div class="profit-card__value" id="annual-profit-ru">720 млн KZT</div>
-                            <div class="profit-card__note">При объёме 288 млрд KZT/год</div>
+                            <div class="profit-card__label">Месячная прибыль</div>
+                            <div class="profit-card__value" id="monthly-profit-ru">120 млн KZT</div>
+                            <div class="profit-card__note">Ваша комиссия</div>
                         </div>
                         <div class="profit-card profit-card--highlight">
-                            <div class="profit-card__label">При 20% рынка</div>
-                            <div class="profit-card__value" id="market-profit-ru">144 млн KZT</div>
-                            <div class="profit-card__note">57.6 млрд KZT годового оборота</div>
+                            <div class="profit-card__label">Годовая прибыль</div>
+                            <div class="profit-card__value" id="annual-profit-ru">1.44 млрд KZT</div>
+                            <div class="profit-card__note">~$3M USD/год</div>
                         </div>
                     </div>
 
@@ -1279,15 +1303,15 @@
                         <h4>Контекст рынка</h4>
                         <div class="context-grid">
                             <div class="context-item">
-                                <strong>60,000+</strong>
+                                <strong id="context-drivers-ru">60,000+</strong>
                                 <span>водителей такси в Алматы</span>
                             </div>
                             <div class="context-item">
-                                <strong>24 млрд KZT</strong>
+                                <strong id="context-volume-ru">24 млрд KZT</strong>
                                 <span>месячный объём выплат</span>
                             </div>
                             <div class="context-item">
-                                <strong>288 млрд KZT</strong>
+                                <strong id="context-annual-ru">288 млрд KZT</strong>
                                 <span>годовой объём рынка</span>
                             </div>
                         </div>
