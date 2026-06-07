@@ -22,15 +22,29 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           echo '82.115.48.95 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMsUvlcXSqfxwdJoGf6dLYa8aD/ZjWOa9jO2smpujyhJ' > ~/.ssh/known_hosts
 
-      - name: Rsync site to VPS
+      - name: Rsync static site
         run: |
           rsync -avz --delete \
             -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes" \
             --exclude '.git' \
             --exclude '.github' \
+            --exclude 'server' \
+            --exclude 'deploy' \
             --exclude 'CNAME' \
             --exclude '.nojekyll' \
             --exclude 'CLAUDE.md' \
             --exclude 'generate_pdf.py' \
             --exclude 'eunoia.kz' \
             ./ eunoia@82.115.48.95:/opt/eunoia/site/
+
+      - name: Rsync API server
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes" \
+            server/ eunoia@82.115.48.95:/opt/eunoia/server/
+
+      - name: Rebuild containers
+        # eunoia may sudo exactly this one root-owned script (sudoers.d/eunoia-deploy)
+        run: |
+          ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes eunoia@82.115.48.95 \
+            'sudo /usr/local/bin/eunoia-redeploy'

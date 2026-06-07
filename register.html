@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | EUNOIA</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/portal.css">
+</head>
+<body class="auth-body">
+    <main class="auth-card">
+        <a href="/" class="wordmark">EUNOIA<span>.</span></a>
+        <h1>Create your mailbox</h1>
+
+        <div class="auth-error" id="error"></div>
+
+        <form id="register-form">
+            <div class="field">
+                <label for="local">Address</label>
+                <div class="suffix-wrap">
+                    <input id="local" name="local" autocomplete="off" required autofocus
+                           pattern="[a-z0-9][a-z0-9._\-]{0,30}[a-z0-9]|[a-z0-9]"
+                           title="Lowercase letters, digits, . _ -">
+                    <span class="suffix">@eunoia.kz</span>
+                </div>
+            </div>
+            <div class="field">
+                <label for="password">Password (min 10 chars)</label>
+                <input id="password" name="password" type="password" autocomplete="new-password" minlength="10" required>
+            </div>
+            <div class="field">
+                <label for="invite">Invite code</label>
+                <input id="invite" name="invite" autocomplete="off" required>
+            </div>
+            <button class="btn" id="submit" type="submit">Create mailbox</button>
+        </form>
+
+        <p class="auth-alt">Already have one? <a href="/login">Sign in</a></p>
+    </main>
+
+    <script>
+        const form = document.getElementById('register-form');
+        const errorBox = document.getElementById('error');
+        const submit = document.getElementById('submit');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorBox.classList.remove('show');
+            submit.disabled = true;
+            try {
+                const res = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        local: document.getElementById('local').value,
+                        password: document.getElementById('password').value,
+                        invite: document.getElementById('invite').value,
+                    }),
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) throw new Error(data.error || 'Registration failed');
+                location.href = '/login?registered=1';
+            } catch (err) {
+                errorBox.textContent = err.message;
+                errorBox.classList.add('show');
+                submit.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

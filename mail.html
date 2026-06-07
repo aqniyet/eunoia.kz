@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail | EUNOIA</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/portal.css">
+</head>
+<body class="mail-body">
+    <header class="mail-top">
+        <a href="/" class="wordmark">EUNOIA<span>.</span></a>
+        <span style="color:var(--text-secondary);font-size:0.85rem;">Mail</span>
+        <span class="who" id="who"></span>
+        <button class="btn btn--ghost" id="logout">Sign out</button>
+    </header>
+
+    <nav class="mail-toolbar">
+        <button class="tab active" data-box="inbox">Inbox</button>
+        <button class="tab" data-box="sent">Sent</button>
+        <button class="tab" id="refresh" title="Refresh">&#8635; Refresh</button>
+        <button class="btn" id="compose-open" style="width:auto;margin-left:auto;padding:8px 18px;">+ Compose</button>
+    </nav>
+
+    <main class="mail-main" id="main">
+        <div class="msg-list" id="list">
+            <div class="empty-list">Loading&hellip;</div>
+        </div>
+        <section class="msg-view" id="view">
+            <p class="placeholder">Select a message</p>
+        </section>
+    </main>
+
+    <div class="modal-backdrop" id="compose-modal">
+        <div class="modal">
+            <h2>New message</h2>
+            <div class="auth-error" id="compose-error"></div>
+            <form id="compose-form">
+                <div class="field">
+                    <label for="c-to">To</label>
+                    <input id="c-to" placeholder="someone@example.com" required>
+                </div>
+                <div class="field">
+                    <label for="c-subject">Subject</label>
+                    <input id="c-subject" required>
+                </div>
+                <div class="field">
+                    <label for="c-text">Message</label>
+                    <textarea id="c-text" required></textarea>
+                </div>
+                <div class="actions">
+                    <button type="button" class="btn btn--ghost" id="compose-cancel">Cancel</button>
+                    <button type="submit" class="btn" id="compose-send">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const $ = (id) => document.getElementById(id);
+        let currentBox = 'inbox';
+        let messages = [];
+
+        const esc = (s) => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
+        const fmtDate = (d) => d ? new Date(d).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' }) : '';
+
+        async function api(path, opts = {}) {
+            const res = await fetch(path, { headers: { 'Content-Type': 'application/json' }, ...opts });
+            if (res.status === 401) { location.href = '/login'; throw new Error('Signed out'); }
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(data.error || 'Request failed');
+            return data;
+        }
+
+        async function loadList() {
+            $('list').innerHTML = '<div class="empty-list">Loading&hellip;</div>';
+            try {
+                ({ messages } = await api(`/api/messages?box=${currentBox}`));
+            } catch (err) {
+                $('list').innerHTML = `<div class="empty-list">${esc(err.message)}</div>`;
+                return;
+            }
+            if (!messages.length) {
+                $('list').innerHTML = '<div class="empty-list">Nothing here yet</div>';
+                return;
+            }
+            $('list').innerHTML = messages.map((m) => `
+                <button class="msg-row ${m.seen ? '' : 'unseen'}" data-uid="${m.uid}">
+                    <span class="line1">
+                        <span class="who">${esc(currentBox === 'sent' ? m.to : m.from)}</span>
+                        <span class="date">${fmtDate(m.date)}</span>
+                    </span>
+                    <span class="subj">${esc(m.subject)}</span>
+                </button>`).join('');
+        }
+
+        async function openMessage(uid) {
+            document.querySelectorAll('.msg-row').forEach((r) => r.classList.toggle('active', r.dataset.uid == uid));
+            $('main').classList.add('viewing');
+            $('view').innerHTML = '<p class="placeholder">Loading&hellip;</p>';
+            let msg;
+            try {
+                msg = await api(`/api/messages/${uid}?box=${currentBox}`);
+            } catch (err) {
+                $('view').innerHTML = `<p class="placeholder">${esc(err.message)}</p>`;
+                return;
+            }
+            $('view').innerHTML = `
+                <button class="btn btn--ghost back-btn" id="back">&larr; Back</button>
+                <h2>${esc(msg.subject)}</h2>
+                <div class="msg-meta">
+                    From: ${esc(msg.from)}<br>
+                    To: ${esc(msg.to)}<br>
+                    ${esc(fmtDate(msg.date))}
+                </div>
+                <div class="msg-text">${esc(msg.text)}</div>`;
+            document.getElementById('back')?.addEventListener('click', () => {
+                $('main').classList.remove('viewing');
+            });
+            const row = document.querySelector(`.msg-row[data-uid="${uid}"]`);
+            row?.classList.remove('unseen');
+        }
+
+        // wiring
+        document.querySelectorAll('.tab[data-box]').forEach((tab) => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab[data-box]').forEach((t) => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentBox = tab.dataset.box;
+                $('main').classList.remove('viewing');
+                $('view').innerHTML = '<p class="placeholder">Select a message</p>';
+                loadList();
+            });
+        });
+        $('refresh').addEventListener('click', loadList);
+        $('list').addEventListener('click', (e) => {
+            const row = e.target.closest('.msg-row');
+            if (row) openMessage(Number(row.dataset.uid));
+        });
+        $('logout').addEventListener('click', async () => {
+            await fetch('/api/logout', { method: 'POST' }).catch(() => {});
+            location.href = '/login';
+        });
+
+        $('compose-open').addEventListener('click', () => $('compose-modal').classList.add('show'));
+        $('compose-cancel').addEventListener('click', () => $('compose-modal').classList.remove('show'));
+        $('compose-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const errBox = $('compose-error');
+            errBox.classList.remove('show');
+            $('compose-send').disabled = true;
+            try {
+                await api('/api/send', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        to: $('c-to').value,
+                        subject: $('c-subject').value,
+                        text: $('c-text').value,
+                    }),
+                });
+                $('compose-modal').classList.remove('show');
+                e.target.reset();
+                if (currentBox === 'sent') loadList();
+            } catch (err) {
+                errBox.textContent = err.message;
+                errBox.classList.add('show');
+            } finally {
+                $('compose-send').disabled = false;
+            }
+        });
+
+        // boot: confirm session, show identity, load inbox
+        api('/api/me').then(({ email }) => { $('who').textContent = email; loadList(); }).catch(() => {});
+    </script>
+</body>
+</html>

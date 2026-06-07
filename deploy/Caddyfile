@@ -1,0 +1,25 @@
+# eunoia.kz — lives at /opt/eunoia/Caddyfile on the VPS.
+# NOT applied automatically by CI: copy by hand + `docker compose up -d`
+# (root-level infra stays out of the deploy key's reach on purpose).
+{
+	email aqniyet@aqniyet.com
+}
+
+eunoia.kz {
+	encode gzip
+
+	handle /api/* {
+		reverse_proxy api:3000
+	}
+
+	handle {
+		root * /srv
+		# pretty URLs: /login -> login.html, /mail -> mail.html
+		try_files {path} {path}.html
+		file_server
+	}
+}
+
+www.eunoia.kz {
+	redir https://eunoia.kz{uri} permanent
+}
