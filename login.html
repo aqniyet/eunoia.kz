@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in | EUNOIA</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/portal.css">
+</head>
+<body class="auth-body">
+    <main class="auth-card">
+        <a href="/" class="wordmark">EUNOIA<span>.</span></a>
+        <h1>Sign in to mail</h1>
+
+        <div class="auth-note" id="note"></div>
+        <div class="auth-error" id="error"></div>
+
+        <form id="login-form">
+            <div class="field">
+                <label for="email">Address</label>
+                <div class="suffix-wrap">
+                    <input id="email" name="email" autocomplete="username" required autofocus>
+                    <span class="suffix">@eunoia.kz</span>
+                </div>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" required>
+            </div>
+            <button class="btn" id="submit" type="submit">Sign in</button>
+        </form>
+
+        <p class="auth-alt">No account? <a href="/register">Register with an invite code</a></p>
+    </main>
+
+    <script>
+        const form = document.getElementById('login-form');
+        const errorBox = document.getElementById('error');
+        const noteBox = document.getElementById('note');
+        const submit = document.getElementById('submit');
+
+        if (new URLSearchParams(location.search).get('registered')) {
+            noteBox.textContent = 'Mailbox created — sign in.';
+            noteBox.classList.add('show');
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorBox.classList.remove('show');
+            submit.disabled = true;
+            try {
+                const res = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: document.getElementById('email').value,
+                        password: document.getElementById('password').value,
+                    }),
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) throw new Error(data.error || 'Sign-in failed');
+                location.href = '/mail';
+            } catch (err) {
+                errorBox.textContent = err.message;
+                errorBox.classList.add('show');
+                submit.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "eunoia-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.1.0",
+    "imapflow": "^1.0.191",
+    "mailparser": "^3.7.3",
+    "nodemailer": "^7.0.0"
+  }
+}

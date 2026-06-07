@@ -1,0 +1,38 @@
+# eunoia.kz web stack — lives at /opt/eunoia/docker-compose.yml on the VPS.
+# NOT applied automatically by CI: copy by hand + `sudo eunoia-redeploy`
+# (root-level infra stays out of the deploy key's reach on purpose).
+#
+# Secrets in /opt/eunoia/.env (root 600): SESSION_SECRET, INVITE_CODE,
+# MAIL_HOST, MAIL_DOMAIN.
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: eunoia-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp" # HTTP/3
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./site:/srv:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - api
+
+  api:
+    build: ./server
+    container_name: eunoia-api
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # docker-mailserver config dir (accounts file) — registration appends here
+      - ACCOUNTS_FILE=/mailcfg/postfix-accounts.cf
+    volumes:
+      - /opt/mailserver/data/config:/mailcfg
+    mem_limit: 200m
+
+volumes:
+  caddy-data:
+  caddy-config:
