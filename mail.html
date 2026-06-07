@@ -68,16 +68,36 @@
         const esc = (s) => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
         const fmtDate = (d) => d ? new Date(d).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' }) : '';
 
-        // Escape everything, but make http(s) URLs clickable. Split on the URL
-        // pattern (raw text), escape each piece separately — scheme-restricted,
-        // attribute-escaped, so no markup from the mail body ever executes.
+        // Escape everything, but make http(s) URLs clickable — and render image
+        // URLs as inline <img>. Split on the URL pattern (raw text), escape each
+        // piece separately — scheme-restricted, attribute-escaped, so no markup
+        // from the mail body ever executes.
+        const IMG_URL_RE = /\.(png|jpe?g|gif|webp|avif)(\?[^\s]*)?$/i;
         function linkify(raw) {
             return (raw ?? '').split(/(https?:\/\/[^\s<>"]+)/g).map((part, i) => {
                 if (i % 2 === 0) return esc(part);
                 const url = part.replace(/[.,;:!?)\]]+$/, ''); // trailing punctuation isn't part of the URL
                 const rest = part.slice(url.length);
+                if (IMG_URL_RE.test(url)) {
+                    return `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">`
+                        + `<img class="msg-img" src="${esc(url)}" loading="lazy" referrerpolicy="no-referrer" alt="${esc(url)}"></a>${esc(rest)}`;
+                }
                 return `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(url)}</a>${esc(rest)}`;
             }).join('');
+        }
+
+        const fmtSize = (n) => n >= 1048576 ? `${(n / 1048576).toFixed(1)} MB` : n >= 1024 ? `${Math.round(n / 1024)} KB` : `${n} B`;
+
+        function renderAttachments(msg) {
+            if (!msg.attachments?.length) return '';
+            const items = msg.attachments.map((a) => {
+                const url = `/api/messages/${msg.uid}/attachments/${a.index}?box=${currentBox}`;
+                if (a.contentType.startsWith('image/') && a.contentType !== 'image/svg+xml') {
+                    return `<a href="${url}" target="_blank"><img class="msg-img" src="${url}" loading="lazy" alt="${esc(a.filename)}"></a>`;
+                }
+                return `<a class="msg-att" href="${url}" download>&#128206; ${esc(a.filename)} <span>(${fmtSize(a.size)})</span></a>`;
+            }).join('');
+            return `<div class="msg-atts">${items}</div>`;
         }
 
         async function api(path, opts = {}) {
@@ -137,7 +157,8 @@
                     To: ${esc(msg.to)}<br>
                     ${esc(fmtDate(msg.date))}
                 </div>
-                <div class="msg-text">${linkify(msg.text)}</div>`;
+                <div class="msg-text">${linkify(msg.text)}</div>
+                ${renderAttachments(msg)}`;
             document.getElementById('back')?.addEventListener('click', () => {
                 $('main').classList.remove('viewing');
             });

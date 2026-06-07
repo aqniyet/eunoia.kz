@@ -250,6 +250,27 @@ body {
 .msg-text a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .msg-text a:hover { filter: brightness(1.15); }
 
+.msg-img {
+    display: block;
+    max-width: 100%;
+    max-height: 420px;
+    margin: 8px 0;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    background: var(--surface);
+}
+.msg-atts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+}
+.msg-att { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+.msg-att span { color: var(--text-secondary); }
+.msg-att:hover { text-decoration: underline; }
+
 .empty-list { color: var(--text-secondary); text-align: center; padding: 40px 16px; font-size: 0.9rem; }
 
 /* ── Compose modal ── */

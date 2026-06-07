@@ -130,7 +130,53 @@ mailRouter.get('/messages/:uid', async (req, res) => {
     to: parsed.to?.text || '',
     date: parsed.date,
     text,
+    attachments: (parsed.attachments || []).map((a, index) => ({
+      index,
+      filename: a.filename || `attachment-${index + 1}`,
+      contentType: a.contentType || 'application/octet-stream',
+      size: a.size || 0,
+    })),
   });
+});
+
+// Images (except SVG, which can execute scripts when opened directly) are
+// served inline so the UI can embed them; everything else is forced to
+// download as octet-stream — never rendered in the page's origin.
+mailRouter.get('/messages/:uid/attachments/:idx', async (req, res) => {
+  const box = resolveBox(req.query.box);
+  const uid = Number.parseInt(req.params.uid, 10);
+  const idx = Number.parseInt(req.params.idx, 10);
+  if (!box || !Number.isInteger(uid) || uid <= 0 || !Number.isInteger(idx) || idx < 0) {
+    return res.status(400).json({ error: 'Bad attachment reference' });
+  }
+
+  const client = imapClient(req);
+  let attachment;
+  try {
+    await client.connect();
+    const lock = await client.getMailboxLock(box);
+    try {
+      const msg = await client.fetchOne(uid, { source: true }, { uid: true });
+      if (!msg?.source) return res.status(404).json({ error: 'Message not found' });
+      const parsed = await simpleParser(msg.source);
+      attachment = (parsed.attachments || [])[idx];
+    } finally {
+      lock.release();
+    }
+    await client.logout();
+  } catch (err) {
+    client.close();
+    throw err;
+  }
+  if (!attachment) return res.status(404).json({ error: 'Attachment not found' });
+
+  const type = attachment.contentType || 'application/octet-stream';
+  const inlineImage = type.startsWith('image/') && type !== 'image/svg+xml';
+  const safeName = (attachment.filename || 'attachment').replace(/[^\w.\- ]/g, '_');
+  res.setHeader('Content-Type', inlineImage ? type : 'application/octet-stream');
+  res.setHeader('Content-Disposition', `${inlineImage ? 'inline' : 'attachment'}; filename="${safeName}"`);
+  res.setHeader('Cache-Control', 'private, max-age=3600');
+  return res.send(attachment.content);
 });
 
 mailRouter.post('/messages/:uid/move', async (req, res) => {
