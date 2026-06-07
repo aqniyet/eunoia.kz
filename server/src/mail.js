@@ -17,7 +17,7 @@ import { imapCredentials } from './auth.js';
 
 const { MAIL_HOST } = process.env;
 
-const BOXES = { inbox: 'INBOX', sent: 'Sent' };
+const BOXES = { inbox: 'INBOX', sent: 'Sent', spam: 'Junk' };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const LIST_LIMIT = 50;
 
@@ -50,7 +50,14 @@ mailRouter.get('/messages', async (req, res) => {
   const messages = [];
   try {
     await client.connect();
-    const lock = await client.getMailboxLock(box);
+    let lock;
+    try {
+      lock = await client.getMailboxLock(box);
+    } catch {
+      // Folder not created yet (e.g. Junk before first use) — empty, not an error.
+      await client.logout();
+      return res.json({ box, messages });
+    }
     try {
       const total = client.mailbox.exists;
       if (total > 0) {
@@ -124,6 +131,36 @@ mailRouter.get('/messages/:uid', async (req, res) => {
     date: parsed.date,
     text,
   });
+});
+
+mailRouter.post('/messages/:uid/move', async (req, res) => {
+  const from = resolveBox(req.body?.from);
+  const to = resolveBox(req.body?.to);
+  const uid = Number.parseInt(req.params.uid, 10);
+  if (!from || !to || from === to || !Number.isInteger(uid) || uid <= 0) {
+    return res.status(400).json({ error: 'Bad move request' });
+  }
+
+  const client = imapClient(req);
+  try {
+    await client.connect();
+    const lock = await client.getMailboxLock(from);
+    try {
+      try {
+        await client.messageMove({ uid }, to, { uid: true });
+      } catch {
+        await client.mailboxCreate(to).catch(() => {});
+        await client.messageMove({ uid }, to, { uid: true });
+      }
+    } finally {
+      lock.release();
+    }
+    await client.logout();
+  } catch (err) {
+    client.close();
+    throw err;
+  }
+  return res.json({ ok: true });
 });
 
 mailRouter.post('/send', async (req, res) => {

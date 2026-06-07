@@ -21,6 +21,7 @@
     <nav class="mail-toolbar">
         <button class="tab active" data-box="inbox">Inbox</button>
         <button class="tab" data-box="sent">Sent</button>
+        <button class="tab" data-box="spam">Spam</button>
         <button class="tab" id="refresh" title="Refresh">&#8635; Refresh</button>
         <button class="btn" id="compose-open" style="width:auto;margin-left:auto;padding:8px 18px;">+ Compose</button>
     </nav>
@@ -120,8 +121,16 @@
                 $('view').innerHTML = `<p class="placeholder">${esc(err.message)}</p>`;
                 return;
             }
+            const moveAction = currentBox === 'inbox'
+                ? '<button class="btn btn--ghost btn--spam" id="move-btn" data-to="spam">Mark as spam</button>'
+                : currentBox === 'spam'
+                    ? '<button class="btn btn--ghost" id="move-btn" data-to="inbox">Not spam</button>'
+                    : '';
             $('view').innerHTML = `
-                <button class="btn btn--ghost back-btn" id="back">&larr; Back</button>
+                <div class="msg-actions">
+                    <button class="btn btn--ghost back-btn" id="back">&larr; Back</button>
+                    ${moveAction}
+                </div>
                 <h2>${esc(msg.subject)}</h2>
                 <div class="msg-meta">
                     From: ${esc(msg.from)}<br>
@@ -131,6 +140,22 @@
                 <div class="msg-text">${linkify(msg.text)}</div>`;
             document.getElementById('back')?.addEventListener('click', () => {
                 $('main').classList.remove('viewing');
+            });
+            document.getElementById('move-btn')?.addEventListener('click', async (ev) => {
+                const btn = ev.currentTarget;
+                btn.disabled = true;
+                try {
+                    await api(`/api/messages/${uid}/move`, {
+                        method: 'POST',
+                        body: JSON.stringify({ from: currentBox, to: btn.dataset.to }),
+                    });
+                    $('main').classList.remove('viewing');
+                    $('view').innerHTML = '<p class="placeholder">Select a message</p>';
+                    loadList();
+                } catch (err) {
+                    btn.disabled = false;
+                    btn.textContent = err.message;
+                }
             });
             const row = document.querySelector(`.msg-row[data-uid="${uid}"]`);
             row?.classList.remove('unseen');

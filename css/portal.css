@@ -299,4 +299,11 @@ body {
     .mail-main.viewing .msg-view { display: block; }
     .back-btn { display: inline-flex !important; }
 }
-.back-btn { display: none; margin-bottom: 14px; }
+.back-btn { display: none; }
+
+.msg-actions { display: flex; gap: 10px; margin-bottom: 14px; }
+.msg-actions:empty { display: none; }
+.msg-actions .btn { width: auto; }
+.msg-actions #move-btn { margin-left: auto; }
+.btn--spam { color: var(--danger); border-color: var(--danger); }
+.btn--spam:hover { background: var(--danger-dim); }
