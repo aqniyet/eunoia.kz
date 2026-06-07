@@ -67,6 +67,18 @@
         const esc = (s) => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; };
         const fmtDate = (d) => d ? new Date(d).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' }) : '';
 
+        // Escape everything, but make http(s) URLs clickable. Split on the URL
+        // pattern (raw text), escape each piece separately — scheme-restricted,
+        // attribute-escaped, so no markup from the mail body ever executes.
+        function linkify(raw) {
+            return (raw ?? '').split(/(https?:\/\/[^\s<>"]+)/g).map((part, i) => {
+                if (i % 2 === 0) return esc(part);
+                const url = part.replace(/[.,;:!?)\]]+$/, ''); // trailing punctuation isn't part of the URL
+                const rest = part.slice(url.length);
+                return `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(url)}</a>${esc(rest)}`;
+            }).join('');
+        }
+
         async function api(path, opts = {}) {
             const res = await fetch(path, { headers: { 'Content-Type': 'application/json' }, ...opts });
             if (res.status === 401) { location.href = '/login'; throw new Error('Signed out'); }
@@ -116,7 +128,7 @@
                     To: ${esc(msg.to)}<br>
                     ${esc(fmtDate(msg.date))}
                 </div>
-                <div class="msg-text">${esc(msg.text)}</div>`;
+                <div class="msg-text">${linkify(msg.text)}</div>`;
             document.getElementById('back')?.addEventListener('click', () => {
                 $('main').classList.remove('viewing');
             });
